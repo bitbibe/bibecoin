@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BibeCoin
+Comment=BibeCoin P2P Cryptocurrency
+Comment[fr]=BibeCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=BibeCoin, eşten eşe kriptografik sanal para birimi
+Exec=bibecoin-qt %u
+Terminal=false
+Type=Application
+Icon=bibecoin128
+MimeType=x-scheme-handler/bibecoin;
+Categories=Office;Finance;
