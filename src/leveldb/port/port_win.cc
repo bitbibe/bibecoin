@@ -91,7 +91,7 @@ void CondVar::Wait() {
 
   // initiate handshake
   ::WaitForSingleObject(sem1_, INFINITE);
-  ::ReleaseSemabibecoin(sem2_, 1, NULL);
+  ::ReleaseSemaphore(sem2_, 1, NULL);
   mu_->Lock();
 }
 
@@ -101,7 +101,7 @@ void CondVar::Signal() {
     --waiting_;
 
     // finalize handshake
-    ::ReleaseSemabibecoin(sem1_, 1, NULL);
+    ::ReleaseSemaphore(sem1_, 1, NULL);
     ::WaitForSingleObject(sem2_, INFINITE);
   }
   wait_mtx_.Unlock();
@@ -109,7 +109,7 @@ void CondVar::Signal() {
 
 void CondVar::SignalAll() {
   wait_mtx_.Lock();
-  ::ReleaseSemabibecoin(sem1_, waiting_, NULL);
+  ::ReleaseSemaphore(sem1_, waiting_, NULL);
   while(waiting_ > 0) {
     --waiting_;
     ::WaitForSingleObject(sem2_, INFINITE);
